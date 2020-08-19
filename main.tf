@@ -32,10 +32,11 @@ data "template_file" "circleci_policy" {
   }
 }
 
-# resource "local_file" "circle_credentials" {
-#   filename = "tmp/circleci_credentials"
-#   content  = "${aws_iam_access_key.circleci.id}\n${aws_iam_access_key.circleci.secret}"
-# }
+resource "local_file" "circle_credentials" {
+  filename = "tmp/circleci_credentials"
+  # content  = "${aws_iam_access_key.circleci.id}\n${aws_iam_access_key.circleci.secret}"
+  content = "foo!"
+}
 
 # resource "aws_iam_user_policy" "circleci" {
 #   name   = "AllowCircleCI"
